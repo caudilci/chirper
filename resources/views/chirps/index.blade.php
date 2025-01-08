@@ -10,5 +10,22 @@
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
         </form>
+        
+        <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
+            @foreach ($chirps as $chirp)
+                <div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <span> {{ $chirp->user->name }} </span>
+                                <small> {{ $chirp->created_at->format('j M Y, g:i a') }} </small>
+                            </div>
+                            <p> {{ $chirp->message }} </p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 </x-app-layout>
